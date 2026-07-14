@@ -25,6 +25,18 @@ body {
   min-height: 100vh;
 }
 
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  padding-inline: 2rem;
+}
+
+.section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
 .page {
   min-height: 100vh;
   display: flex;

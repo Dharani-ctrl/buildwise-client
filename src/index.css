@@ -46,6 +46,42 @@
 
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.hero-section {
+  padding-top: 72px;
+  padding-bottom: 120px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .hero-section {
+    padding-top: 56px;
+    padding-bottom: 88px;
+  }
+}
+
 /* Layout */
 .app-shell { display: flex; min-height: 100vh; }
 

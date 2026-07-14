@@ -30,7 +30,7 @@ export default function Landing() {
 
       {/* Top Announcement Bar */}
       <div className="bg-[#2563EB] text-white hidden md:block text-sm z-50 relative">
-        <div className="mx-auto flex h-11 max-w-[1280px] items-center justify-between gap-6 px-6 xl:px-0">
+        <div className="container flex h-11 items-center justify-between gap-6">
           <div className="flex items-center gap-6">
             <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-blue-100 transition-colors">
               <Phone size={14} /> +91 98765 43210
@@ -58,7 +58,7 @@ export default function Landing() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-white/75 backdrop-blur-sm'}`}
       >
-        <div className="mx-auto flex min-h-16 max-w-[1280px] items-center justify-between gap-4 px-6 xl:px-0">
+        <div className="container flex min-h-20 items-center justify-between gap-4">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
             <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">B</div>
             <span className="font-heading font-bold text-xl tracking-tight">BuildWise</span>
@@ -95,7 +95,7 @@ export default function Landing() {
         </div>
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-5 shadow-sm">
-            <nav className="mx-auto flex max-w-[1280px] flex-col gap-4">
+            <nav className="container flex flex-col gap-4">
               {['Home', 'Features', 'How It Works', 'Projects', 'Pricing', 'Blog', 'Contact'].map((item) => (
                 <a
                   key={item}
@@ -116,8 +116,8 @@ export default function Landing() {
       </motion.header>
 
       {/* Hero Section */}
-      <section id="home" className="relative z-10 mx-auto max-w-[1280px] px-6 pb-20 pt-12 md:pt-16 lg:pb-28 xl:px-0">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] gap-12 lg:gap-10 items-center">
+      <section id="home" className="hero-section relative z-10">
+        <div className="container grid grid-cols-1 lg:grid-cols-[minmax(0,0.92fr)_minmax(520px,1.08fr)] gap-16 lg:gap-24 items-center">
           
           {/* Left Side Content */}
           <motion.div 
@@ -186,117 +186,167 @@ export default function Landing() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative mx-auto flex min-h-[420px] w-full max-w-[680px] items-center justify-center lg:min-h-[560px]"
+            className="relative ml-auto flex w-full max-w-[600px] items-center justify-center py-8 lg:py-12"
           >
-            {/* Main Dashboard Container */}
-            <div className="relative z-10 mx-auto hidden w-[min(100%,560px)] rounded-[24px] border border-white bg-white/75 p-5 shadow-[0_24px_55px_-20px_rgba(15,23,42,0.25)] backdrop-blur-2xl md:block lg:p-6">
-              
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100/80">
-                <LayoutDashboard className="text-blue-500" />
-                <div className="font-heading font-bold text-lg text-gray-900">Project Dashboard</div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {/* Cost Card */}
-                <motion.div 
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="bg-white rounded-[20px] p-5 shadow-sm border border-gray-100 min-w-0"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2 text-gray-500 text-xs font-medium uppercase tracking-wide"><Calculator size={14}/> Estimate</div>
-                    <span className="px-2 py-0.5 bg-blue-50 text-blue-600 rounded text-[10px] font-bold tracking-wider uppercase">Standard</span>
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-3">₹18,45,000</div>
-                  <div className="w-full bg-gray-100 rounded-full h-1.5"><div className="bg-blue-500 h-1.5 rounded-full w-[45%]"></div></div>
-                </motion.div>
-
-                {/* Progress Card */}
-                <motion.div 
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="bg-white rounded-[20px] p-5 shadow-sm border border-gray-100 min-w-0"
-                >
-                  <div className="flex items-center gap-2 text-gray-500 text-xs font-medium uppercase tracking-wide mb-3"><BarChart3 size={14}/> Analytics</div>
-                  <div className="flex justify-between items-end mb-1">
-                    <div>
-                      <div className="text-[10px] text-gray-400 font-medium uppercase tracking-wide mb-0.5">Progress</div>
-                      <div className="text-xl font-bold text-gray-900">75%</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-[10px] text-gray-400 font-medium uppercase tracking-wide mb-0.5">Timeline</div>
-                      <div className="text-lg font-bold text-blue-600">45 Days</div>
-                    </div>
-                  </div>
-                </motion.div>
-                
-                {/* Floor Plan Card */}
-                <div className="bg-white rounded-[20px] p-5 shadow-sm border border-gray-100 flex flex-col items-center justify-center min-h-[130px] group cursor-pointer hover:border-blue-200 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <Home className="text-blue-500" size={20} />
-                  </div>
-                  <div className="text-xs font-bold text-gray-700">Floor Plan Preview</div>
+            {/* Floating badge – top left */}
+            <motion.div
+              animate={{ y: [-6, 6, -6] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-4 top-6 z-20 hidden xl:block"
+            >
+              <div className="flex items-center gap-3 rounded-2xl border border-white bg-white/95 px-4 py-3 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)] backdrop-blur-xl">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-green-50 text-green-600">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                 </div>
-
-                {/* 3D Elevation Card */}
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-[20px] p-5 shadow-md shadow-blue-500/20 text-white flex flex-col justify-between">
-                  <div className="flex items-center gap-2 text-blue-100 text-xs font-medium tracking-wide uppercase"><ImageIcon size={14}/> 3D Elevation</div>
-                  <div className="mt-4 font-bold text-base leading-tight">Modern Minimalist<br/>Villa Style</div>
-                </div>
-              </div>
-              
-              {/* AI Recommendation */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-                className="mt-5 bg-gradient-to-r from-blue-50 to-[#F8FAFC] border border-blue-100/60 rounded-[16px] p-4 flex gap-4 items-start shadow-sm"
-              >
-                <div className="bg-white p-2 rounded-xl shadow-sm text-blue-500 flex-shrink-0"><Sparkles size={16} /></div>
                 <div>
-                  <div className="font-bold text-xs text-gray-900 mb-1 tracking-wide uppercase">AI Recommendation</div>
-                  <p className="text-xs text-gray-600 leading-relaxed">Reduce flooring cost by 8% by switching to Standard Finish vitrified tiles in bedrooms.</p>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cost Saved</div>
+                  <div className="text-sm font-extrabold text-gray-900">₹1,42,000</div>
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
+            {/* Floating badge – bottom right */}
+            <motion.div
+              animate={{ y: [6, -6, 6] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -right-4 bottom-6 z-20 hidden xl:block"
+            >
+              <div className="flex items-center gap-3 rounded-2xl border border-white bg-white/95 px-4 py-3 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.18)] backdrop-blur-xl">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <Sparkles size={16} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400">AI Score</div>
+                  <div className="text-sm font-extrabold text-gray-900">98 / 100</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Main Dashboard Card */}
+            <div className="relative z-10 w-full overflow-hidden rounded-[28px] border border-gray-100 bg-white shadow-[0_32px_64px_-20px_rgba(15,23,42,0.22)]">
+
+              {/* Window chrome */}
+              <div className="flex items-center justify-between border-b border-gray-100 bg-gray-50/70 px-5 py-3.5">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-3 w-3 rounded-full bg-red-400"></div>
+                  <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
+                  <div className="h-3 w-3 rounded-full bg-green-400"></div>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-gray-500">
+                  <LayoutDashboard size={13} className="text-blue-500" />
+                  BuildWise · Project Dashboard
+                </div>
+                <span className="flex h-5 w-5 items-center justify-center rounded bg-blue-600 text-[9px] font-black text-white">B</span>
+              </div>
+
+              <div className="p-5">
+                {/* KPI Stats row */}
+                <div className="mb-4 grid grid-cols-3 gap-3">
+                  {[
+                    { label: 'Est. Cost', value: '₹18.4L', sub: 'Standard tier', color: 'text-gray-900' },
+                    { label: 'Progress', value: '75%', sub: '45 days left', color: 'text-blue-600' },
+                    { label: 'Built-up', value: '1,080', sub: 'sqft · TN', color: 'text-gray-900' },
+                  ].map((stat, i) => (
+                    <div key={i} className="rounded-2xl bg-gray-50 px-3 py-3">
+                      <div className="mb-1 text-[9px] font-bold uppercase tracking-widest text-gray-400">{stat.label}</div>
+                      <div className={`text-base font-extrabold leading-none ${stat.color}`}>{stat.value}</div>
+                      <div className="mt-1 text-[9px] text-gray-400">{stat.sub}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Progress bar */}
+                <div className="mb-4">
+                  <div className="mb-1.5 flex justify-between text-[11px] font-semibold text-gray-400">
+                    <span>Construction Progress</span>
+                    <span className="text-blue-600">75% complete</span>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-gray-100">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: '75%' }}
+                      transition={{ duration: 1.5, delay: 0.8, ease: 'easeOut' }}
+                      className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-400"
+                    />
+                  </div>
+                </div>
+
+                {/* 2-col card grid */}
+                <div className="mb-4 grid grid-cols-2 gap-3">
+                  {/* Floor Plan card */}
+                  <div className="group overflow-hidden rounded-[18px] border border-gray-100 bg-gray-50 p-4 hover:border-blue-200 transition-colors cursor-pointer">
+                    <div className="mb-3 flex items-center gap-2">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
+                        <Home size={13} />
+                      </div>
+                      <span className="text-[9px] font-bold uppercase tracking-wide text-gray-500">Floor Plan</span>
+                    </div>
+                    {/* Blueprint visualization */}
+                    <div className="relative h-[88px] w-full overflow-hidden rounded-xl bg-blue-700 p-2">
+                      <div className="absolute inset-0 opacity-20" style={{backgroundImage:'linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)',backgroundSize:'10px 10px'}} />
+                      <div className="relative z-10 flex h-full gap-1">
+                        <div className="flex flex-1 flex-col gap-1">
+                          <div className="flex flex-[2] items-center justify-center rounded bg-white/20 text-[7px] font-bold text-white">Living</div>
+                          <div className="flex flex-1 items-center justify-center rounded bg-white/15 text-[7px] font-bold text-white/80">Kitchen</div>
+                        </div>
+                        <div className="flex w-[45%] flex-col gap-1">
+                          <div className="flex flex-1 items-center justify-center rounded bg-white/20 text-[7px] font-bold text-white">Bed 1</div>
+                          <div className="flex flex-1 items-center justify-center rounded bg-white/15 text-[7px] font-bold text-white/80">Bed 2</div>
+                          <div className="flex flex-1 items-center justify-center rounded bg-white/10 text-[7px] font-bold text-white/60">Bath</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-2 text-[9px] font-semibold text-gray-500">2BHK · 1080 sqft</div>
+                  </div>
+
+                  {/* 3D Elevation card */}
+                  <div className="overflow-hidden rounded-[18px] bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 p-4 shadow-md shadow-blue-500/20">
+                    <div className="mb-3 flex items-center gap-2">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/20 text-white">
+                        <Building size={13} />
+                      </div>
+                      <span className="text-[9px] font-bold uppercase tracking-wide text-blue-200">3D Elevation</span>
+                    </div>
+                    <div className="relative flex h-[88px] items-end justify-center">
+                      <svg viewBox="0 0 120 80" className="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="60,6 108,38 12,38" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5"/>
+                        <rect x="18" y="38" width="84" height="38" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" rx="1"/>
+                        <rect x="50" y="52" width="20" height="24" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.35)" strokeWidth="1"/>
+                        <rect x="24" y="46" width="16" height="12" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" rx="1"/>
+                        <rect x="80" y="46" width="16" height="12" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" rx="1"/>
+                      </svg>
+                    </div>
+                    <div className="text-xs font-bold text-white leading-snug">Modern Minimalist</div>
+                    <div className="text-[9px] text-blue-200">Villa Style · Ready</div>
+                  </div>
+                </div>
+
+                {/* AI Recommendation chip */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2 }}
+                  className="flex items-start gap-3 rounded-2xl border border-blue-100/80 bg-gradient-to-r from-blue-50 to-indigo-50/60 px-4 py-3.5"
+                >
+                  <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm shadow-blue-500/30">
+                    <Sparkles size={13} />
+                  </div>
+                  <div>
+                    <div className="mb-0.5 text-[9px] font-extrabold uppercase tracking-widest text-blue-700">✦ AI Tip</div>
+                    <p className="text-[11px] leading-relaxed text-gray-600">Switching to vitrified tiles saves ₹1.1L — Standard Finish recommended for bedrooms.</p>
+                  </div>
+                </motion.div>
+              </div>
             </div>
-
-            {/* Floating Overlay Cards (visible on all sizes) */}
-            <motion.div 
-              animate={{ y: [-8, 8, -8] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute left-2 top-0 z-20 w-[220px] rounded-[20px] border border-white bg-white/90 p-5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] backdrop-blur-xl md:left-0 lg:top-10 xl:-left-3"
-            >
-              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Today's Estimate</div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center"><span className="text-xs text-gray-500 font-medium">Area</span><span className="text-xs font-bold text-gray-900">1080 sqft</span></div>
-                <div className="flex justify-between items-center"><span className="text-xs text-gray-500 font-medium">Location</span><span className="text-xs font-bold text-gray-900">Tamil Nadu</span></div>
-                <div className="h-px bg-gray-100 w-full my-1"></div>
-                <div className="flex justify-between items-center"><span className="text-xs text-gray-500 font-medium">Rate</span><span className="text-xs font-bold text-blue-600">₹1,750/sqft</span></div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              animate={{ y: [8, -8, 8] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute bottom-2 right-2 z-20 flex max-w-[260px] items-center gap-4 rounded-[20px] border border-white bg-white/90 p-4 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] backdrop-blur-xl md:right-0 lg:bottom-12 xl:-right-3"
-            >
-              <div className="w-12 h-12 bg-blue-50 rounded-[14px] flex items-center justify-center text-blue-600">
-                <ImageIcon size={20} />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-gray-900">Interior Moodboard</div>
-                <div className="text-xs text-gray-500 font-medium">Living Room • Kitchen</div>
-              </div>
-            </motion.div>
-
           </motion.div>
+
         </div>
       </section>
 
+
       {/* Section 1: Why BuildWise */}
-      <section className="py-24 lg:py-32 bg-white px-6 lg:px-12 relative z-10">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="section bg-white relative z-10">
+        <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm tracking-wide mb-6">
               WHY BUILDWISE
@@ -325,14 +375,14 @@ export default function Landing() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
                 whileHover={{ y: -8, scale: 1.01 }}
-                className="bg-white rounded-[20px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-blue-100 hover:shadow-[0_8px_40px_rgba(37,99,235,0.08)] transition-all duration-300 group cursor-pointer"
+                className="bg-white rounded-[20px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-blue-100 hover:shadow-[0_8px_40px_rgba(37,99,235,0.08)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
               >
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100/50 flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-sm border border-blue-50">
                   {feature.icon}
                 </div>
                 <h3 className="font-heading text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">{feature.desc}</p>
-                <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-3 transition-all gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+                <div className="mt-auto flex items-center text-blue-600 font-semibold text-sm group-hover:gap-3 transition-all gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
                   Learn more <ArrowRight size={16} />
                 </div>
               </motion.div>
@@ -342,8 +392,8 @@ export default function Landing() {
       </section>
 
       {/* Section 2: Core Features */}
-      <section className="py-24 lg:py-32 bg-[#F8FAFC] px-6 lg:px-12 relative z-10 border-y border-gray-100/50">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="section bg-[#F8FAFC] relative z-10 border-y border-gray-100/50">
+        <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide mb-6">
               FEATURES
@@ -374,7 +424,7 @@ export default function Landing() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 hover:border-blue-100 hover:shadow-[0_8px_30px_rgb(37,99,235,0.06)] transition-all duration-300 group cursor-pointer"
+                className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 hover:border-blue-100 hover:shadow-[0_8px_30px_rgb(37,99,235,0.06)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-5 group-hover:bg-blue-600 group-hover:text-white group-hover:-rotate-6 transition-all duration-300">
                   {feature.icon}
@@ -388,8 +438,8 @@ export default function Landing() {
       </section>
 
       {/* Optional Feature Showcase */}
-      <section className="py-24 lg:py-32 bg-white px-6 lg:px-12 overflow-hidden relative z-10">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="section bg-white overflow-hidden relative z-10">
+        <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Side Illustration */}
             <motion.div 
@@ -491,8 +541,8 @@ export default function Landing() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-24 lg:py-32 bg-[#F8FAFC] px-6 lg:px-12 relative z-10 border-y border-gray-100/50">
-        <div className="max-w-[1400px] mx-auto">
+      <section id="how-it-works" className="section bg-[#F8FAFC] relative z-10 border-y border-gray-100/50">
+        <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide mb-6">
               HOW IT WORKS
@@ -517,7 +567,7 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 relative overflow-hidden group hover:border-blue-200 transition-colors cursor-pointer"
+                className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 relative overflow-hidden group hover:border-blue-200 transition-colors cursor-pointer h-full flex flex-col"
               >
                 <div className="absolute -right-4 -top-4 text-[120px] font-black text-gray-50 leading-none group-hover:text-blue-50 transition-colors z-0 select-none">
                   {step.num}
@@ -536,9 +586,9 @@ export default function Landing() {
       </section>
 
       {/* AI FEATURES */}
-      <section className="py-24 lg:py-32 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 px-6 lg:px-12 relative z-10 overflow-hidden">
+      <section className="section bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px] opacity-20" />
-        <div className="max-w-[1400px] mx-auto relative z-10">
+        <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading text-3xl lg:text-[46px] font-bold text-white leading-tight mb-6">
               Powered by Artificial Intelligence
@@ -573,8 +623,8 @@ export default function Landing() {
       </section>
 
       {/* PROJECT SHOWCASE */}
-      <section id="projects" className="py-24 lg:py-32 bg-white px-6 lg:px-12 relative z-10">
-        <div className="max-w-[1400px] mx-auto">
+      <section id="projects" className="section bg-white relative z-10">
+        <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading text-3xl lg:text-[42px] font-bold text-gray-900 leading-tight mb-6">
               Project Showcase
@@ -597,19 +647,19 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-[24px] shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden group cursor-pointer hover:shadow-lg transition-all"
+                className="bg-white rounded-[24px] shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden group cursor-pointer hover:shadow-lg transition-all h-full flex flex-col"
               >
                 <div className="h-48 bg-gray-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors z-10" />
                   <img src={`https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&auto=format&fit=crop&q=80&ixlib=rb-4.0.3`} alt="House" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">{project.type}</h3>
                   <div className="flex justify-between items-center text-sm text-gray-600 mb-6">
                     <span className="flex items-center gap-1"><LayoutTemplate size={14} /> {project.area}</span>
                     <span className="font-semibold text-blue-600">{project.cost}</span>
                   </div>
-                  <button className="w-full py-3 rounded-xl bg-gray-50 text-gray-700 font-semibold group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors flex items-center justify-center gap-2">
+                  <button className="mt-auto w-full py-3 rounded-xl bg-gray-50 text-gray-700 font-semibold group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors flex items-center justify-center gap-2">
                     View Details <ArrowRight size={16} />
                   </button>
                 </div>
@@ -620,8 +670,8 @@ export default function Landing() {
       </section>
 
       {/* PRICING SECTION */}
-      <section id="pricing" className="py-24 lg:py-32 bg-[#F8FAFC] px-6 lg:px-12 relative z-10 border-y border-gray-100/50">
-        <div className="max-w-[1200px] mx-auto">
+      <section id="pricing" className="section bg-[#F8FAFC] relative z-10 border-y border-gray-100/50">
+        <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading text-3xl lg:text-[42px] font-bold text-gray-900 leading-tight mb-6">
               Simple, Transparent Pricing
@@ -631,9 +681,9 @@ export default function Landing() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
             {/* Free */}
-            <div className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-full flex flex-col">
               <h3 className="text-xl font-bold text-gray-900 mb-2">FREE</h3>
               <div className="text-4xl font-bold text-gray-900 mb-6">₹0<span className="text-lg text-gray-500 font-medium">/forever</span></div>
               <ul className="space-y-4 mb-8">
@@ -641,11 +691,11 @@ export default function Landing() {
                   <li key={item} className="flex items-center gap-3 text-gray-600"><CheckCircle size={18} className="text-blue-200" /> {item}</li>
                 ))}
               </ul>
-              <button className="w-full py-4 rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-100 transition-colors">Start Free</button>
+              <button className="mt-auto w-full py-4 rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-100 transition-colors">Start Free</button>
             </div>
 
             {/* Basic (Highlighted) */}
-            <div className="bg-blue-600 rounded-[24px] p-8 shadow-xl shadow-blue-600/20 text-white relative transform lg:scale-105 z-10 border border-blue-500">
+            <div className="bg-blue-600 rounded-[24px] p-8 shadow-xl shadow-blue-600/20 text-white relative transform lg:scale-105 z-10 border border-blue-500 h-full flex flex-col">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-sm">Most Popular</div>
               <h3 className="text-xl font-bold text-blue-50 mb-2">BASIC</h3>
               <div className="text-4xl font-bold text-white mb-6">₹499<span className="text-lg text-blue-200 font-medium">/project</span></div>
@@ -654,11 +704,11 @@ export default function Landing() {
                   <li key={item} className="flex items-center gap-3 text-blue-50"><CheckCircle size={18} className="text-blue-300" /> {item}</li>
                 ))}
               </ul>
-              <button className="w-full py-4 rounded-xl bg-white text-blue-600 font-bold hover:bg-gray-50 shadow-md transition-colors">Upgrade Now</button>
+              <button className="mt-auto w-full py-4 rounded-xl bg-white text-blue-600 font-bold hover:bg-gray-50 shadow-md transition-colors">Upgrade Now</button>
             </div>
 
             {/* Premium */}
-            <div className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-full flex flex-col">
               <h3 className="text-xl font-bold text-gray-900 mb-2">PREMIUM</h3>
               <div className="text-4xl font-bold text-gray-900 mb-6">₹999<span className="text-lg text-gray-500 font-medium">/project</span></div>
               <ul className="space-y-4 mb-8">
@@ -666,15 +716,15 @@ export default function Landing() {
                   <li key={item} className="flex items-center gap-3 text-gray-600"><CheckCircle size={18} className="text-blue-200" /> {item}</li>
                 ))}
               </ul>
-              <button className="w-full py-4 rounded-xl bg-gray-900 text-white font-bold hover:bg-gray-800 transition-colors">Go Premium</button>
+              <button className="mt-auto w-full py-4 rounded-xl bg-gray-900 text-white font-bold hover:bg-gray-800 transition-colors">Go Premium</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 lg:py-32 bg-white px-6 lg:px-12 relative z-10">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="section bg-white relative z-10">
+        <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading text-3xl lg:text-[42px] font-bold text-gray-900 leading-tight mb-6">
               Loved by Homeowners
@@ -687,12 +737,12 @@ export default function Landing() {
               { name: 'Priya Patel', city: 'Ahmedabad', review: 'I loved the 3D elevation feature. It allowed me to visualize my dream home perfectly before breaking ground.' },
               { name: 'Anand Kumar', city: 'Chennai', review: 'The AI recommendations for interior layouts were a game-changer for our 2BHK. Highly recommend to anyone building a new house!' }
             ].map((testimonial, idx) => (
-              <div key={idx} className="bg-[#F8FAFC] rounded-[24px] p-8 border border-gray-100 hover:border-blue-100 transition-colors cursor-pointer">
+              <div key={idx} className="bg-[#F8FAFC] rounded-[24px] p-8 border border-gray-100 hover:border-blue-100 transition-colors cursor-pointer h-full flex flex-col">
                 <div className="flex text-yellow-400 mb-6">
                   {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" className="text-yellow-400" />)}
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-8 italic">"{testimonial.review}"</p>
-                <div className="flex items-center gap-4">
+                <div className="mt-auto flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl">
                     {testimonial.name.charAt(0)}
                   </div>
@@ -708,37 +758,40 @@ export default function Landing() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 lg:py-32 bg-[#F8FAFC] px-6 lg:px-12 relative z-10 border-t border-gray-100/50">
-        <div className="max-w-[800px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl lg:text-[42px] font-bold text-gray-900 leading-tight mb-6">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          
-          <div className="space-y-4">
-            {[
-              "How accurate are the construction cost estimates?",
-              "Can I export the floor plan and estimate as a PDF?",
-              "Can I modify the generated floor plans?",
-              "Can I upload my existing plan for AI analysis?",
-              "Is this suitable for village or rural homes?"
-            ].map((question, idx) => (
-              <div key={idx} className="bg-white border border-gray-100 rounded-[16px] overflow-hidden group cursor-pointer hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
-                <div className="px-6 py-5 flex justify-between items-center">
-                  <span className="font-semibold text-gray-900">{question}</span>
-                  <Plus size={20} className="text-gray-400 group-hover:text-blue-500" />
+      <section className="section bg-[#F8FAFC] relative z-10 border-t border-gray-100/50">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl lg:text-[42px] font-bold text-gray-900 leading-tight mb-6">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            
+            <div className="space-y-4">
+              {[
+                "How accurate are the construction cost estimates?",
+                "Can I export the floor plan and estimate as a PDF?",
+                "Can I modify the generated floor plans?",
+                "Can I upload my existing plan for AI analysis?",
+                "Is this suitable for village or rural homes?"
+              ].map((question, idx) => (
+                <div key={idx} className="bg-white border border-gray-100 rounded-[16px] overflow-hidden group cursor-pointer hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
+                  <div className="px-6 py-5 flex justify-between items-center">
+                    <span className="font-semibold text-gray-900">{question}</span>
+                    <Plus size={20} className="text-gray-400 group-hover:text-blue-500" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 lg:py-32 px-6 lg:px-12 relative z-10">
-        <div className="max-w-[1200px] mx-auto bg-blue-600 rounded-[32px] p-10 lg:p-20 text-center relative overflow-hidden shadow-2xl shadow-blue-600/30">
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-[80px]" />
+      <section className="section relative z-10">
+        <div className="container">
+          <div className="w-full bg-blue-600 rounded-[32px] py-16 px-8 md:py-20 md:px-16 text-center relative overflow-hidden shadow-2xl shadow-blue-600/30">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-[80px]" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/20 rounded-full blur-[100px]" />
           
           <div className="relative z-10">
@@ -758,11 +811,12 @@ export default function Landing() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-white border-t border-gray-100 pt-20 pb-10 px-6 lg:px-12 relative z-10">
-        <div className="max-w-[1400px] mx-auto">
+      <footer className="bg-white border-t border-gray-100 pt-20 pb-10 relative z-10">
+        <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
               <div className="flex items-center gap-2 mb-6">

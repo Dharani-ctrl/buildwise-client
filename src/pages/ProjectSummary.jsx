@@ -34,7 +34,7 @@ export default function ProjectSummary() {
 
   return (
     <AppLayout title="Project Summary">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 28 }}>
+      <div className="page-heading-row">
         <div>
           <h1 style={{ fontSize: 32, fontWeight: 800, color: 'var(--navy)', marginBottom: 4 }}>Project Alpha Summary</h1>
           <p style={{ color: 'var(--muted)' }}>Comprehensive technical overview and construction forecast.</p>
@@ -86,7 +86,7 @@ export default function ProjectSummary() {
       </div>
 
       {/* Bottom 2-col: roadmap + budget */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div className="summary-bottom-grid">
         {/* Roadmap */}
         <div className="summary-card">
           <h4>Project Roadmap <span>📈</span></h4>
@@ -128,7 +128,7 @@ export default function ProjectSummary() {
         )}
       </div>
 
-      <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
+      <div className="action-row">
         <button className="btn btn-outline" onClick={() => navigate(`/estimate/${siteId}`)}>Recalculate Estimate</button>
         <button className="btn btn-outline" onClick={() => navigate(`/floor-plan/${siteId}`)}>Change Floor Plan</button>
         <button className="btn btn-primary" onClick={() => navigate('/dashboard')}>← Dashboard</button>

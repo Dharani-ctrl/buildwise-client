@@ -18,10 +18,10 @@ export default function Dashboard() {
 
   return (
     <AppLayout title="Dashboard">
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 24, alignItems: 'start' }}>
+      <div className="dashboard-layout">
         {/* Left */}
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+          <div className="page-heading-row">
             <div>
               <h2 style={{ fontSize: 22, fontWeight: 800 }}>My Projects</h2>
               <p style={{ color: 'var(--muted)', fontSize: 14, marginTop: 4 }}>Manage your home construction journey and site details.</p>
@@ -84,7 +84,7 @@ export default function Dashboard() {
         </div>
 
         {/* Right sidebar */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div className="dashboard-side">
           <div className="ai-card">
             <h4>✦ AI Insights</h4>
             <p>Based on your pilot plot, material prices in Bangalore have increased by 4.2% this week. Shall we update your estimate?</p>

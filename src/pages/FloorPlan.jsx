@@ -18,7 +18,7 @@ export default function FloorPlan() {
 
   return (
     <AppLayout title="Floor Plan — Preset Library">
-      <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div className="page-heading-row">
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#FEF3ED', color: 'var(--orange)', padding: '4px 12px', borderRadius: 99, fontSize: 12, fontWeight: 700, marginBottom: 10 }}>
             📏 Plot: 28'6" × 40' (1,200 sqft)
@@ -26,7 +26,7 @@ export default function FloorPlan() {
           <h1 style={{ fontSize: 32, fontWeight: 800, color: 'var(--navy)', marginBottom: 6 }}>Preset Library</h1>
           <p style={{ color: 'var(--muted)', maxWidth: 540 }}>Precision-engineered layouts scaled to your specific plot. Select a foundation to begin your AI-assisted customisation.</p>
         </div>
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div className="filter-actions">
           {['All Plans', '2BHK', '3BHK'].map((f, i) => {
             const val = i === 0 ? 'all' : f;
             return (
@@ -71,7 +71,7 @@ export default function FloorPlan() {
       </div>
 
       {/* Bottom CTA */}
-      <div style={{ background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 12, padding: '24px 32px', marginTop: 32, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="bottom-cta">
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <div style={{ width: 48, height: 48, background: 'var(--navy)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>✦</div>
           <div>
@@ -83,7 +83,7 @@ export default function FloorPlan() {
       </div>
 
       {selected && (
-        <div style={{ position: 'fixed', bottom: 32, right: 32, background: 'var(--navy)', color: '#fff', padding: '16px 24px', borderRadius: 12, display: 'flex', gap: 16, alignItems: 'center', boxShadow: 'var(--shadow-lg)' }}>
+        <div className="selection-toast">
           <div>
             <div style={{ fontWeight: 700 }}>Selected: {selected.name}</div>
             <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{selected.area} sqft · {selected.badge}</div>

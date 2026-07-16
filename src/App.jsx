@@ -19,7 +19,7 @@ function PrivateRoute({ children }) {
   const { token } = useAuth();
   return token ? children : <Navigate to="/login" replace />;
 }
-
+// Export Data Updated
 export default function App() {
   const [token, setToken] = useState(() => localStorage.getItem('bw_token'));
   const [user, setUser] = useState(() => {
